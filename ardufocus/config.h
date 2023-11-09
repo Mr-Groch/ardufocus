@@ -88,15 +88,15 @@
 // The ULN2003 shall be used with the unmodded version of 28BYJ-48 or any other
 // Unipolar stepper motor. The A4988 driver should be used with Bipolar stepper
 // motors or the modded version of the 28BYJ-48 (see the doc/ folder).
-#define MOTOR1_USE_A4988_DRIVER
+//#define MOTOR1_USE_A4988_DRIVER
 //#define MOTOR1_USE_DRV8825_DRIVER
-//#define MOTOR1_USE_ULN2003_DRIVER
+#define MOTOR1_USE_ULN2003_DRIVER
 
 // Driver pin-out definition
 // Define bellow the pin-out for your specific driver.
 #ifdef MOTOR1_USE_ULN2003_DRIVER
   //                    IN1, IN2, IN3, IN4
-  #define MOTOR1_PINOUT   2,   3,   4,   5
+  #define MOTOR1_PINOUT   12,   11,   10,   9
 #endif
 
 #ifdef MOTOR1_USE_A4988_DRIVER
@@ -106,7 +106,7 @@
 
 // Activate the following directive if you'd like to invert the motor rotation
 // changing the focus direction.
-//#define MOTOR1_INVERT_DIRECTION
+#define MOTOR1_INVERT_DIRECTION
 
 // When active Ardufocus will cut the stepper motor current when idle, in theory
 // this could lead to less accuracy between movements but will keep the motor
@@ -204,13 +204,15 @@
 // This is the most basic user interface, it uses two keys to move the focuser
 // IN (FWD) and out (BWD). A third key (SWT) can be used to select the active
 // motor on a dual motor configuration.
-//#define USE_UI_KAP
+#define USE_UI_KAP
 
 // Use the following setings to select the input pins connected to each one of
 // the switches. The third button is optional.
 #define UI_KAP_FWD_BUTTON_PIN 16
 #define UI_KAP_BWD_BUTTON_PIN 17
 //#define UI_KAP_SWT_BUTTON_PIN 18
+
+#define UI_KAP_BUTTON_DEBOUNCE 15
 
 // We like the switches to be wired in an active-low configuration, this way you
 // don't need to use additional external resistors, we will automatically enable

@@ -107,8 +107,9 @@ void Keybd::tick()
     // It's important that the "new_motor_speed" value not to
     // be lower than 2, because at the stepper tick routine it
     // will be divivded by two.
-    uint8_t new_motor_speed = map(Analog::read(UI_KAP_ADC_CHANNEL), 0, 1023, 2, 64);
-    api::motor_set_speed(motor, new_motor_speed);
+    //uint8_t new_motor_speed = map(Analog::read(UI_KAP_ADC_CHANNEL), 0, 1023, 2, 64);
+    //uint8_t new_motor_speed = 4;  // smaller is faster, even numbers, 2 is max
+    //api::motor_set_speed(motor, new_motor_speed);
 
     if(! api::motor_is_moving(motor)) {
       api::motor_set_target(motor, (button_fwd_state) ? -1 : 0);
